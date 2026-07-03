@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Honvally - Professional LED Lighting Solutions</title>
+<meta name="description" content="Guangzhou Honvally Electronic Technology Co., Ltd. - Professional LED track lights, downlights, magnetic track systems and outdoor lighting solutions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --primary-light: #3b82f6;
+  --accent: #f59e0b;
+  --dark: #0f172a;
+  --dark-2: #1e293b;
+  --gray-900: #111827;
+  --gray-800: #1f2937;
+  --gray-700: #374151;
+  --gray-600: #4b5563;
+  --gray-500: #6b7280;
+  --gray-400: #9ca3af;
+  --gray-300: #d1d5db;
+  --gray-200: #e5e7eb;
+  --gray-100: #f3f4f6;
+  --gray-50: #f9fafb;
+  --white: #ffffff;
+  --radius: 12px;
+  --radius-lg: 20px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow: 0 4px 20px rgba(0,0,0,0.08);
+  --shadow-lg: 0 10px 40px rgba(0,0,0,0.12);
+  --shadow-xl: 0 20px 60px rgba(0,0,0,0.15);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--gray-800);
+  line-height: 1.6;
+  background: var(--white);
+  overflow-x: hidden;
+}
+
+/* ===== NAVIGATION ===== */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  transition: var(--transition);
+}
+.nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+.nav-inner {
+  max-width: 1280px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem; height: 72px;
+}
+.logo {
+  font-size: 1.6rem; font-weight: 800;
+  color: var(--primary);
+  letter-spacing: -0.5px;
+  text-decoration: none;
+}
+.logo span { color: var(--dark); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  text-decoration: none; color: var(--gray-600);
+  font-weight: 500; font-size: 0.95rem;
+  transition: var(--transition);
+  position: relative;
+}
+.nav-links a:hover { color: var(--primary); }
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0;
+  width: 0; height: 2px; background: var(--primary);
+  transition: var(--transition);
+}
+.nav-links a:hover::after { width: 100%; }
+.nav-cta {
+  background: var(--primary); color: white !important;
+  padding: 10px 24px; border-radius: 50px;
+  font-weight: 600; font-size: 0.9rem;
+  text-decoration: none; transition: var(--transition);
+  box-shadow: 0 2px 10px rgba(37,99,235,0.3);
+}
+.nav-cta:hover { background: var(--primary-dark); transform: translateY(-1px); box-shadow: 0 4px 15px rgba(37,99,235,0.4); }
+.nav-cta::after { display: none !important; }
+
+.mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--dark); margin: 5px 0; transition: var(--transition); }
+
+/* ===== HERO ===== */
+.hero {
+  position: relative; min-height: 100vh;
+  display: flex; align-items: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+}
+.hero-slider {
+  position: absolute; inset: 0; z-index: 0;
+}
+.hero-slide {
+  position: absolute; inset: 0;
+  opacity: 0; transition: opacity 1.2s ease;
+}
+.hero-slide.active { opacity: 1; }
+.hero-slide img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: brightness(0.35);
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(15,23,42,0.85) 0%, rgba(37,99,235,0.2) 100%);
+  z-index: 1;
+}
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 1280px; margin: 0 auto;
+  padding: 0 2rem; width: 100%;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(37,99,235,0.15);
+  border: 1px solid rgba(37,99,235,0.3);
+  padding: 8px 20px; border-radius: 50px;
+  color: var(--primary-light); font-size: 0.85rem;
+  font-weight: 600; margin-bottom: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+.hero-badge::before { content: '●'; color: #22c55e; font-size: 0.5rem; }
+.hero h1 {
+  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+  font-weight: 900; color: white;
+  line-height: 1.1; margin-bottom: 1.5rem;
+  letter-spacing: -1.5px;
+  max-width: 700px;
+}
+.hero h1 .highlight {
+  background: linear-gradient(135deg, var(--primary-light), #60a5fa);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.hero p {
+  font-size: 1.2rem; color: rgba(255,255,255,0.7);
+  max-width: 540px; margin-bottom: 2.5rem;
+  line-height: 1.7;
+}
+.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 32px; border-radius: 50px;
+  font-weight: 600; font-size: 1rem;
+  text-decoration: none; transition: var(--transition);
+  cursor: pointer; border: none;
+}
+.btn-primary {
+  background: var(--primary); color: white;
+  box-shadow: 0 4px 20px rgba(37,99,235,0.4);
+}
+.btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 6px 30px rgba(37,99,235,0.5); }
+.btn-outline {
+  background: transparent; color: white;
+  border: 2px solid rgba(255,255,255,0.3);
+}
+.btn-outline:hover { border-color: white; background: rgba(255,255,255,0.1); }
+.hero-stats {
+  display: flex; gap: 3rem; margin-top: 4rem;
+  padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);
+}
+.hero-stat h3 { font-size: 2rem; font-weight: 800; color: white; }
+.hero-stat p { font-size: 0.85rem; color: rgba(255,255,255,0.5); font-weight: 500; }
+
+/* Slider dots */
+.slider-dots {
+  position: absolute; bottom: 2rem; left: 50%;
+  transform: translateX(-50%); z-index: 3;
+  display: flex; gap: 10px;
+}
+.slider-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: rgba(255,255,255,0.3); cursor: pointer;
+  transition: var(--transition); border: none;
+}
+.slider-dot.active { background: var(--primary); width: 30px; border-radius: 5px; }
+
+/* ===== SECTIONS ===== */
+section { padding: 100px 0; }
+.container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+.section-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--primary); font-weight: 600;
+  font-size: 0.85rem; text-transform: uppercase;
+  letter-spacing: 2px; margin-bottom: 1rem;
+}
+.section-label::before {
+  content: ''; width: 30px; height: 2px;
+  background: var(--primary);
+}
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800; color: var(--dark);
+  line-height: 1.2; margin-bottom: 1rem;
+  letter-spacing: -1px;
+}
+.section-desc {
+  font-size: 1.1rem; color: var(--gray-500);
+  max-width: 600px; line-height: 1.7;
+}
+
+/* ===== FEATURES ===== */
+.features { background: var(--gray-50); }
+.features-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 2rem; margin-top: 3rem;
+}
+.feature-card {
+  background: white; padding: 2.5rem 2rem;
+  border-radius: var(--radius-lg);
+  transition: var(--transition);
+  border: 1px solid var(--gray-100);
+  position: relative; overflow: hidden;
+}
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: transparent;
+}
+.feature-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 3px; background: var(--primary);
+  transform: scaleX(0); transition: var(--transition);
+}
+.feature-card:hover::before { transform: scaleX(1); }
+.feature-icon {
+  width: 56px; height: 56px; border-radius: 14px;
+  background: linear-gradient(135deg, rgba(37,99,235,0.1), rgba(37,99,235,0.05));
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1.5rem; font-size: 1.5rem;
+}
+.feature-card h3 {
+  font-size: 1.15rem; font-weight: 700;
+  color: var(--dark); margin-bottom: 0.75rem;
+}
+.feature-card p { font-size: 0.9rem; color: var(--gray-500); line-height: 1.6; }
+
+/* ===== PRODUCTS ===== */
+.products-tabs {
+  display: flex; gap: 0.5rem; margin-top: 2rem; margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+.tab-btn {
+  padding: 10px 24px; border-radius: 50px;
+  border: 1px solid var(--gray-200);
+  background: white; color: var(--gray-600);
+  font-weight: 500; font-size: 0.9rem;
+  cursor: pointer; transition: var(--transition);
+}
+.tab-btn:hover { border-color: var(--primary); color: var(--primary); }
+.tab-btn.active {
+  background: var(--primary); color: white;
+  border-color: var(--primary);
+  box-shadow: 0 2px 10px rgba(37,99,235,0.3);
+}
+.products-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.product-card {
+  background: white; border-radius: var(--radius-lg);
+  overflow: hidden; transition: var(--transition);
+  border: 1px solid var(--gray-100);
+  position: relative;
+}
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+  border-color: transparent;
+}
+.product-img {
+  position: relative; height: 280px;
+  background: var(--gray-50);
+  overflow: hidden;
+}
+.product-img img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.product-card:hover .product-img img { transform: scale(1.05); }
+.product-badge {
+  position: absolute; top: 16px; left: 16px;
+  background: var(--primary); color: white;
+  padding: 4px 14px; border-radius: 50px;
+  font-size: 0.75rem; font-weight: 600;
+}
+.product-info { padding: 1.5rem; }
+.product-info h3 {
+  font-size: 1.05rem; font-weight: 700;
+  color: var(--dark); margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+.product-info p {
+  font-size: 0.85rem; color: var(--gray-500);
+  margin-bottom: 1rem; line-height: 1.5;
+}
+.product-meta {
+  display: flex; justify-content: space-between; align-items: center;
+}
+.product-specs {
+  display: flex; gap: 0.5rem;
+}
+.spec-tag {
+  padding: 4px 10px; border-radius: 6px;
+  background: var(--gray-50); font-size: 0.75rem;
+  color: var(--gray-600); font-weight: 500;
+}
+.product-link {
+  color: var(--primary); font-weight: 600;
+  font-size: 0.85rem; text-decoration: none;
+  display: flex; align-items: center; gap: 4px;
+  transition: var(--transition);
+}
+.product-link:hover { gap: 8px; }
+
+/* ===== APPLICATIONS ===== */
+.applications { background: var(--dark); color: white; }
+.applications .section-label { color: var(--primary-light); }
+.applications .section-label::before { background: var(--primary-light); }
+.applications .section-title { color: white; }
+.applications .section-desc { color: rgba(255,255,255,0.5); }
+.app-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem; margin-top: 3rem;
+}
+.app-card {
+  position: relative; border-radius: var(--radius-lg);
+  overflow: hidden; height: 320px;
+  cursor: pointer;
+}
+.app-card img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.app-card:hover img { transform: scale(1.08); }
+.app-card-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+  display: flex; flex-direction: column;
+  justify-content: flex-end; padding: 2rem;
+}
+.app-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.3rem; }
+.app-card p { font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+
+/* ===== ABOUT ===== */
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4rem; align-items: center; margin-top: 3rem;
+}
+.about-content h3 {
+  font-size: 1.8rem; font-weight: 800;
+  color: var(--dark); margin-bottom: 1.5rem;
+  line-height: 1.3;
+}
+.about-content p {
+  color: var(--gray-600); margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+.about-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem; margin-top: 2rem;
+}
+.about-stat {
+  text-align: center; padding: 1.5rem;
+  background: var(--gray-50); border-radius: var(--radius);
+}
+.about-stat h4 {
+  font-size: 2rem; font-weight: 800;
+  color: var(--primary); margin-bottom: 0.3rem;
+}
+.about-stat p { font-size: 0.8rem; color: var(--gray-500); font-weight: 500; }
+.about-image {
+  position: relative; border-radius: var(--radius-lg);
+  overflow: hidden; height: 500px;
+}
+.about-image img { width: 100%; height: 100%; object-fit: cover; }
+.about-image-badge {
+  position: absolute; bottom: 2rem; left: 2rem;
+  background: var(--primary); color: white;
+  padding: 1.2rem 1.5rem; border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+}
+.about-image-badge h4 { font-size: 1.5rem; font-weight: 800; }
+.about-image-badge p { font-size: 0.8rem; opacity: 0.8; }
+
+/* ===== CERTIFICATIONS ===== */
+.certs { background: var(--gray-50); }
+.certs-row {
+  display: flex; justify-content: center;
+  gap: 3rem; margin-top: 3rem; flex-wrap: wrap;
+}
+.cert-item {
+  display: flex; align-items: center; gap: 1rem;
+  background: white; padding: 1.5rem 2rem;
+  border-radius: var(--radius); border: 1px solid var(--gray-100);
+  transition: var(--transition);
+}
+.cert-item:hover { box-shadow: var(--shadow); border-color: transparent; }
+.cert-icon {
+  width: 48px; height: 48px; border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-weight: 800; font-size: 0.7rem;
+}
+.cert-item h4 { font-size: 1rem; font-weight: 700; color: var(--dark); }
+.cert-item p { font-size: 0.8rem; color: var(--gray-500); }
+
+/* ===== CONTACT ===== */
+.contact { background: var(--dark); color: white; }
+.contact .section-label { color: var(--primary-light); }
+.contact .section-label::before { background: var(--primary-light); }
+.contact .section-title { color: white; }
+.contact .section-desc { color: rgba(255,255,255,0.5); }
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4rem; margin-top: 3rem;
+}
+.contact-info-cards { display: flex; flex-direction: column; gap: 1.5rem; }
+.contact-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius); padding: 1.5rem;
+  display: flex; align-items: center; gap: 1.2rem;
+  transition: var(--transition);
+}
+.contact-card:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(37,99,235,0.3);
+}
+.contact-card-icon {
+  width: 48px; height: 48px; border-radius: 12px;
+  background: rgba(37,99,235,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; flex-shrink: 0;
+}
+.contact-card h4 { font-size: 0.8rem; color: rgba(255,255,255,0.4); font-weight: 500; margin-bottom: 0.3rem; text-transform: uppercase; letter-spacing: 1px; }
+.contact-card p { font-size: 1rem; color: white; font-weight: 500; }
+.contact-card a { color: white; text-decoration: none; }
+.contact-card a:hover { color: var(--primary-light); }
+
+.contact-form {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-lg); padding: 2.5rem;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-group { margin-bottom: 1.2rem; }
+.form-group label {
+  display: block; font-size: 0.85rem; font-weight: 500;
+  color: rgba(255,255,255,0.6); margin-bottom: 0.5rem;
+}
+.form-group input, .form-group textarea, .form-group select {
+  width: 100%; padding: 12px 16px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 10px; color: white;
+  font-family: inherit; font-size: 0.95rem;
+  transition: var(--transition);
+  outline: none;
+}
+.form-group input::placeholder, .form-group textarea::placeholder {
+  color: rgba(255,255,255,0.3);
+}
+.form-group input:focus, .form-group textarea:focus {
+  border-color: var(--primary);
+  background: rgba(37,99,235,0.08);
+}
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-submit {
+  width: 100%; padding: 14px;
+  background: var(--primary); color: white;
+  border: none; border-radius: 10px;
+  font-weight: 600; font-size: 1rem;
+  cursor: pointer; transition: var(--transition);
+}
+.form-submit:hover { background: var(--primary-dark); }
+
+/* ===== FOOTER ===== */
+.footer {
+  background: #080c14; color: rgba(255,255,255,0.5);
+  padding: 60px 0 30px;
+}
+.footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem; margin-bottom: 3rem;
+}
+.footer-brand .logo { font-size: 1.4rem; margin-bottom: 1rem; display: inline-block; }
+.footer-brand p { font-size: 0.9rem; line-height: 1.7; max-width: 300px; }
+.footer h4 {
+  color: white; font-size: 0.9rem; font-weight: 600;
+  margin-bottom: 1.2rem; text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.footer ul { list-style: none; }
+.footer ul li { margin-bottom: 0.7rem; }
+.footer ul a {
+  color: rgba(255,255,255,0.5); text-decoration: none;
+  font-size: 0.9rem; transition: var(--transition);
+}
+.footer ul a:hover { color: var(--primary-light); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 1.5rem;
+  display: flex; justify-content: space-between;
+  align-items: center; font-size: 0.85rem;
+}
+
+/* ===== ANIMATIONS ===== */
+.fade-up {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+  .app-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .mobile-toggle { display: block; }
+  .nav-links.open {
+    display: flex; flex-direction: column;
+    position: absolute; top: 72px; left: 0; right: 0;
+    background: white; padding: 2rem;
+    box-shadow: var(--shadow-lg);
+    border-top: 1px solid var(--gray-100);
+  }
+  .hero h1 { font-size: 2.2rem; }
+  .hero-stats { flex-direction: column; gap: 1.5rem; }
+  .features-grid { grid-template-columns: 1fr; }
+  .products-grid { grid-template-columns: 1fr; }
+  .app-grid { grid-template-columns: 1fr; }
+  .about-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+  .about-stats { grid-template-columns: repeat(3, 1fr); }
+  .certs-row { gap: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav" id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="logo">HONVALLY<span>.</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#applications">Applications</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+    </ul>
+    <button class="mobile-toggle" id="mobileToggle" onclick="document.getElementById('navLinks').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-slider">
+    <div class="hero-slide active"><img src="images/hero-track-light.png" alt="LED Track Lighting"></div>
+    <div class="hero-slide"><img src="images/hero-downlight.png" alt="LED Downlight"></div>
+    <div class="hero-slide"><img src="images/hero-magnetic.png" alt="Magnetic Track System"></div>
+    <div class="hero-slide"><img src="images/hero-museum.png" alt="Museum Lighting"></div>
+    <div class="hero-slide"><img src="images/hero-outdoor.png" alt="Outdoor Lighting"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Professional LED Lighting Manufacturer</div>
+    <h1>Precision <span class="highlight">LED Lighting</span> for Every Space</h1>
+    <p>From retail boutiques to museum galleries, Honvally delivers premium COB track lights, downlights, and magnetic track systems with unmatched quality and 5-year warranty.</p>
+    <div class="hero-btns">
+      <a href="#products" class="btn btn-primary">Explore Products &#8594;</a>
+      <a href="#contact" class="btn btn-outline">Request Quote</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><h3>500+</h3><p>Product Models</p></div>
+      <div class="hero-stat"><h3>5 Years</h3><p>Warranty</p></div>
+      <div class="hero-stat"><h3>100K+</h3><p>Monthly Capacity</p></div>
+      <div class="hero-stat"><h3>CE/RoHS</h3><p>Certified</p></div>
+    </div>
+  </div>
+  <div class="slider-dots">
+    <button class="slider-dot active" onclick="goToSlide(0)"></button>
+    <button class="slider-dot" onclick="goToSlide(1)"></button>
+    <button class="slider-dot" onclick="goToSlide(2)"></button>
+    <button class="slider-dot" onclick="goToSlide(3)"></button>
+    <button class="slider-dot" onclick="goToSlide(4)"></button>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="section-label">Why Honvally</div>
+    <h2 class="section-title">Engineered for Excellence</h2>
+    <p class="section-desc">We combine advanced LED technology with rigorous quality control to deliver lighting solutions that exceed expectations.</p>
+    <div class="features-grid">
+      <div class="feature-card fade-up">
+        <div class="feature-icon">&#9889;</div>
+        <h3>High CRI 90+</h3>
+        <p>Superior color rendering index ensures true-to-life color reproduction, perfect for retail, galleries, and museums.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon">&#128737;</div>
+        <h3>5-Year Warranty</h3>
+        <p>Industry-leading warranty backed by premium components from Philips, Bridgelux, CREE, and Osram LED chips.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon">&#128295;</div>
+        <h3>Smart Integration</h3>
+        <p>DALI, 0-10V, Casambi, Tuya, Zigbee, Bluetooth & WiFi compatible. Seamless smart lighting control systems.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon">&#127758;</div>
+        <h3>Global Standards</h3>
+        <p>CE & RoHS certified. 100-277V global voltage compatibility. Serving clients across Europe, Asia, and beyond.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="container">
+    <div class="section-label">Our Products</div>
+    <h2 class="section-title">Complete LED Lighting Solutions</h2>
+    <p class="section-desc">Over 500 product models spanning track lights, downlights, magnetic systems, and outdoor solutions.</p>
+
+    <div class="products-tabs">
+      <button class="tab-btn active" onclick="filterProducts('all', this)">All Products</button>
+      <button class="tab-btn" onclick="filterProducts('track', this)">Track Lights</button>
+      <button class="tab-btn" onclick="filterProducts('downlight', this)">Downlights</button>
+      <button class="tab-btn" onclick="filterProducts('magnetic', this)">Magnetic System</button>
+      <button class="tab-btn" onclick="filterProducts('linear', this)">Linear Lights</button>
+      <button class="tab-btn" onclick="filterProducts('outdoor', this)">Outdoor</button>
+    </div>
+
+    <div class="products-grid" id="productsGrid">
+      <!-- Track Lights -->
+      <div class="product-card fade-up" data-category="track">
+        <div class="product-img">
+          <img src="images/product-track-light.png" alt="COB LED Track Light">
+          <span class="product-badge">Best Seller</span>
+        </div>
+        <div class="product-info">
+          <h3>COB LED Track Light</h3>
+          <p>10W-50W adjustable spotlight with 1-phase/3-phase adapter. CRI90+, 100lm/W efficiency.</p>
+          <div class="product-meta">
+            <div class="product-specs">
+              <span class="spec-tag">CRI 90+</span>
+              <span class="spec-tag">Dimmable</span>
+            </div>
+            <a href="#contact" class="product-link">Inquire &#8594;</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-up" data-category="track">
+        <div class="product-img">
+          <img src="images/product-track-light.png" alt="Smart Track Light">
+          <span class="product-badge">Smart</span>
+        </div>
+        <div class="product-info">
+          <h3>Smart CCT Tunable Track Light</h3>
+          <p>Color temperature & power adjustable. DALI/Casambi/Tuya compatible. 2700K-6000K range.</p>
+          <div class="product-meta">
+            <div class="product-specs">
+              <span class="spec-tag">CCT Tunable</span>
+              <span class="spec-tag">DALI</span>
+            </div>
+            <a href="#contact" class="product-link">Inquire &#8594;</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-up" data-category="track">
+        <div class="product-img">
+          <img src="images/product-track-light.png" alt="Museum Track Light">
+          <span class="product-badge">Premium</span>
+        </div>
+        <div class="product-info">
+          <h3>Museum Gallery Track Light</h3>
+          <p>High CRI 95+ with dim-to-warm 1800K-3000K. Flicker-free driver for art illumination.</p>
+          <div class="product-meta">
+            <div class="product-specs">
+              <span class="spec-tag">CRI 95+</span>
+              <span class="spec-tag">DTW</span>
+            </div>
+            <a href="#contact" class="product-link">Inquire &#8594;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Downlights -->
+      <div class="product-card fade-up" data-category="downlight">
+        <div class="product-img">
+          <img src="images/product-downlight.png" alt="COB Downlight">
+          <span class="product-badge">Popular</span>
+        </div>
+        <div class="product-info">
+          <h3>COB Recessed Downlight</h3>
+          <p>7W-40W with 360° rotatable head. Anti-glare design, 50° beam angle. IP20 rated.</p>
+          <div class="product-meta">
+            <div class="product-specs">
+              <span class="spec-tag">360° Rotate</span>
+              <span class="spec-tag">Anti-Glare</span>
+            </div>
+            <a href="#contact" class="product-link">Inquire &#8594;</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-up" data-category="downlight">
+        <div class="product-img">
+          <img src="images/product-downlight.png" alt="Surface Downlight">
+          <span class="product-badge">Versatile</span>
+        </div>
+        <div class="product-info">
+          <h3>Surface Mounted Cylinder</h3>
+          <p>8W-50W surface mount downlight. Round or square design. IP54 waterproof option available.</p>
+          <div class="product-meta">
+            <div class="product-specs">
+              <span class="spec-tag">IP54</span>
+              <span class="spec-tag">50W Max</span>
+            </div>
+            <a href="#contact" class="product-link">Inquire &#8594;</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-up" data-category="downlight">
+        <div class="product-img">
+          <img src="images/product-downlight.png" alt="Wall Washer">
+          <span class="product-badge">Architectural</span>
+        </div>
+        <div class="product-info">
+          <h3>Wall Washer Downlight</h3>
+          <p>Adjustable stretch wall washer for accent lighting. Round/square recessed mount. Museum grade.</p>
+          <div class="product-meta">
+            <div class="product-specs">
+              <span class="spec-tag">Adjustable</span>
+              <span class="spec-tag">Trimless</span>
+            </div>
+            <a href="#contact" class="product-link">Inquire &#8594;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Magnetic -->
+      <div class="product-card fade-up" data-category="magnetic">
+        <div class="product-img">
+          <img src="images/product-magnetic-light.png" alt="Magnetic Track System">
+          <span class="product-badge">Innovative</span>
+        </div>
+        <div class="product-info">
+          <h3>48V Magnetic Track System</h3>
+          <p>Complete magnetic lighting system with linear, spotlight & pendant modules. Surface/recessed/suspended mount.</p>
+          <div class="product-meta">
+            <div class="product-specs">
+              <span class="spec-tag">48V DC</span>
+              <span class="spec-tag">Modular</span>
+            </div>
+            <a href="#contact" class="product-link">Inquire &#8594;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Linear -->
+      <div class="product-card fade-up" data-category="linear">
+        <div class="product-img">
+          <img src="images/product-linear-light.png" alt="Linear Track Light">
+          <span class="product-badge">Modern</span>
+        </div>
+        <div class="product-info">
+          <h3>LED Linear Track Light</h3>
+          <p>20W-120W suspended linear fixture. Aluminum alloy body, 1500mm length. DALI dimmable.</p>
+          <div class="product-meta">
+            <div class="product-specs">
+              <span class="spec-tag">1500mm</span>
+              <span class="spec-tag">DALI</span>
+            </div>
+            <a href="#contact" class="product-link">Inquire &#8594;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Outdoor -->
+      <div class="product-card fade-up" data-category="outdoor">
+        <div class="product-img">
+          <img src="images/product-garden-light.png" alt="Garden Spike Light">
+          <span class="product-badge">Outdoor</span>
+        </div>
+        <div class="product-info">
+          <h3>LED Garden Spike Light</h3>
+          <p>IP65 waterproof garden stake light. 5W-12W, 24V low voltage. 24°/36°/60° beam angles.</p>
+          <div class="product-meta">
+            <div class="product-specs">
+              <span class="spec-tag">IP65</span>
+              <span class="spec-tag">24V</span>
+            </div>
+            <a href="#contact" class="product-link">Inquire &#8594;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLICATIONS -->
+<section class="applications" id="applications">
+  <div class="container">
+    <div class="section-label">Applications</div>
+    <h2 class="section-title">Lighting Every Space</h2>
+    <p class="section-desc">Our solutions illuminate the world's most demanding environments with precision and elegance.</p>
+    <div class="app-grid">
+      <div class="app-card fade-up">
+        <img src="images/hero-track-light.png" alt="Retail Lighting">
+        <div class="app-card-overlay">
+          <h3>Retail & Commercial</h3>
+          <p>Shops, showrooms, supermarkets</p>
+        </div>
+      </div>
+      <div class="app-card fade-up">
+        <img src="images/hero-museum.png" alt="Museum Lighting">
+        <div class="app-card-overlay">
+          <h3>Museum & Gallery</h3>
+          <p>Exhibition halls, art galleries</p>
+        </div>
+      </div>
+      <div class="app-card fade-up">
+        <img src="images/hero-downlight.png" alt="Hotel Lighting">
+        <div class="app-card-overlay">
+          <h3>Hotel & Hospitality</h3>
+          <p>Lobbies, corridors, suites</p>
+        </div>
+      </div>
+      <div class="app-card fade-up">
+        <img src="images/hero-magnetic.png" alt="Residential Lighting">
+        <div class="app-card-overlay">
+          <h3>Residential</h3>
+          <p>Living rooms, kitchens, studies</p>
+        </div>
+      </div>
+      <div class="app-card fade-up">
+        <img src="images/hero-outdoor.png" alt="Landscape Lighting">
+        <div class="app-card-overlay">
+          <h3>Outdoor & Landscape</h3>
+          <p>Gardens, pathways, facades</p>
+        </div>
+      </div>
+      <div class="app-card fade-up">
+        <img src="images/hero-track-light.png" alt="Office Lighting">
+        <div class="app-card-overlay">
+          <h3>Office & Workspace</h3>
+          <p>Conference rooms, open offices</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="section-label">About Us</div>
+    <h2 class="section-title">Guangzhou Honvally Electronic Technology</h2>
+    <div class="about-grid">
+      <div class="about-content">
+        <h3>Your Trusted LED Lighting Partner Since 2017</h3>
+        <p>Located in Guangzhou, China, Honvally is a professional LED lighting manufacturer specializing in COB track lights, recessed downlights, magnetic track systems, and outdoor lighting solutions.</p>
+        <p>We partner with world-leading component brands including Philips, Lifud, Bridgelux, CREE, and Osram to ensure every product meets the highest standards of performance, efficiency, and longevity.</p>
+        <p>With a 100,000-unit monthly production capacity and dedicated R&D team, we offer OEM/ODM services and customized lighting solutions for projects of any scale.</p>
+        <div class="about-stats">
+          <div class="about-stat">
+            <h4>2017</h4>
+            <p>Established</p>
+          </div>
+          <div class="about-stat">
+            <h4>100+</h4>
+            <p>Team Members</p>
+          </div>
+          <div class="about-stat">
+            <h4>$5M</h4>
+            <p>Annual Revenue</p>
+          </div>
+        </div>
+      </div>
+      <div class="about-image">
+        <img src="images/hero-magnetic.png" alt="Honvally Factory">
+        <div class="about-image-badge">
+          <h4>CE & RoHS</h4>
+          <p>Certified Quality</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="certs">
+  <div class="container">
+    <div style="text-align:center;">
+      <div class="section-label" style="justify-content:center;">Quality Assurance</div>
+      <h2 class="section-title">Certified & Compliant</h2>
+    </div>
+    <div class="certs-row">
+      <div class="cert-item fade-up">
+        <div class="cert-icon">CE</div>
+        <div><h4>CE Certified</h4><p>European Conformity</p></div>
+      </div>
+      <div class="cert-item fade-up">
+        <div class="cert-icon">RoHS</div>
+        <div><h4>RoHS Compliant</h4><p>Hazardous Substance Free</p></div>
+      </div>
+      <div class="cert-item fade-up">
+        <div class="cert-icon">LVD</div>
+        <div><h4>LVD Certified</h4><p>Low Voltage Directive</p></div>
+      </div>
+      <div class="cert-item fade-up">
+        <div class="cert-icon">5Y</div>
+        <div><h4>5-Year Warranty</h4><p>Industry-leading coverage</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-label">Contact Us</div>
+    <h2 class="section-title">Let's Work Together</h2>
+    <p class="section-desc">Get in touch for product inquiries, custom orders, or partnership opportunities.</p>
+    <div class="contact-grid">
+      <div class="contact-info-cards">
+        <div class="contact-card">
+          <div class="contact-card-icon">&#128100;</div>
+          <div>
+            <h4>Contact Person</h4>
+            <p>Amy Wang</p>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon">&#128222;</div>
+          <div>
+            <h4>Phone / WhatsApp</h4>
+            <p><a href="tel:+8615899974755">+86 158 9997 4755</a></p>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon">&#127970;</div>
+          <div>
+            <h4>Company</h4>
+            <p>Guangzhou Honvally Electronic Technology Co., Ltd.</p>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon">&#128205;</div>
+          <div>
+            <h4>Address</h4>
+            <p>No. 15 Tianxia 1 Road, Baijiang Village, Xintang Town, Zengcheng District, Guangzhou, China</p>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon">&#128176;</div>
+          <div>
+            <h4>Trade Terms</h4>
+            <p>FOB / EXW &nbsp;|&nbsp; T/T, PayPal, Western Union &nbsp;|&nbsp; USD, EUR, AUD</p>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <form onsubmit="event.preventDefault(); alert('Thank you! We will get back to you within 4 hours.');">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Your Name</label>
+              <input type="text" placeholder="John Smith" required>
+            </div>
+            <div class="form-group">
+              <label>Company</label>
+              <input type="text" placeholder="Company name">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" placeholder="john@company.com" required>
+            </div>
+            <div class="form-group">
+              <label>Phone</label>
+              <input type="tel" placeholder="+1 234 567 890">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Product Interest</label>
+            <select>
+              <option>LED Track Lights</option>
+              <option>LED Downlights</option>
+              <option>Magnetic Track System</option>
+              <option>LED Linear Lights</option>
+              <option>Outdoor / Garden Lights</option>
+              <option>Track Rails & Accessories</option>
+              <option>Custom / OEM Project</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea placeholder="Tell us about your project requirements, quantity, and specifications..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Inquiry &#8594;</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">HONVALLY<span>.</span></a>
+        <p>Professional LED lighting manufacturer based in Guangzhou, China. Specializing in track lights, downlights, magnetic track systems, and outdoor lighting.</p>
+      </div>
+      <div>
+        <h4>Products</h4>
+        <ul>
+          <li><a href="#products">LED Track Lights</a></li>
+          <li><a href="#products">LED Downlights</a></li>
+          <li><a href="#products">Magnetic Systems</a></li>
+          <li><a href="#products">Linear Lights</a></li>
+          <li><a href="#products">Outdoor Lighting</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Solutions</h4>
+        <ul>
+          <li><a href="#applications">Retail & Commercial</a></li>
+          <li><a href="#applications">Museum & Gallery</a></li>
+          <li><a href="#applications">Hotel & Hospitality</a></li>
+          <li><a href="#applications">Residential</a></li>
+          <li><a href="#applications">Outdoor</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="https://honvally.en.alibaba.com" target="_blank">Alibaba Store</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Guangzhou Honvally Electronic Technology Co., Ltd. All rights reserved.</p>
+      <p>CE | RoHS | LVD Certified</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Hero slider
+let currentSlide = 0;
+const slides = document.querySelectorAll('.hero-slide');
+const dots = document.querySelectorAll('.slider-dot');
+
+function goToSlide(n) {
+  slides[currentSlide].classList.remove('active');
+  dots[currentSlide].classList.remove('active');
+  currentSlide = n;
+  slides[currentSlide].classList.add('active');
+  dots[currentSlide].classList.add('active');
+}
+
+setInterval(() => {
+  goToSlide((currentSlide + 1) % slides.length);
+}, 5000);
+
+// Product filter
+function filterProducts(cat, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.product-card').forEach(card => {
+    if (cat === 'all' || card.dataset.category === cat) {
+      card.style.display = '';
+      setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 50);
+    } else {
+      card.style.opacity = '0'; card.style.transform = 'translateY(20px)';
+      setTimeout(() => { card.style.display = 'none'; }, 300);
+    }
+  });
+}
+
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// Smooth scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+      document.getElementById('navLinks').classList.remove('open');
+    }
+  });
+});
+</script>
+</body>
+</html>
